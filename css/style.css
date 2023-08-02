@@ -1,0 +1,80 @@
+@font-face {
+    font-family: SourceSansPro;
+    font-weight: 700;
+    src: url("fonts/SourceSansPro-Semibold.otf") format("opentype");
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, 
+body {
+    margin: 0;
+    padding: 0;
+    font-family: SourceSansPro, sens-serif;
+}
+
+.grid {
+    /* margin: 0; */
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 0px auto max-content 0px;
+    grid-template-rows: min-content;
+    grid-template-areas:
+        ".   .    .  ." 
+        ". title nav .";
+    gap: 1em;
+}
+
+.title { 
+    display: flex;
+    grid-area: title;
+    margin: 0;
+    align-items: center;
+}
+
+.logo {
+    width: 23px;
+    height: 23px;
+    align-items: center;
+}
+
+.logo-title {
+    color: #0E0E0E;
+    font-family: 'Roboto', sans-serif;
+    font-size: .875rem;
+    font-weight: 700;
+    letter-spacing: -.03em;
+    margin-left: .2em;
+}
+
+.hero-image {
+    width: 100vw;
+    grid-row: 3;
+    grid-column: 1 / -1;
+    /* object-fit: cover; */
+}
+
+nav {
+    /* margin: 0;
+    padding: 0; */
+    grid-area: nav;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 2em;
+    /* border: 1px solid black; */
+}
+
+nav a {
+    font-size: .75rem;
+    font-weight: 600;
+    color: #090909;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+h3 {
+    margin: 0;
+}
