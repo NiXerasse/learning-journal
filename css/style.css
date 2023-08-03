@@ -1,7 +1,19 @@
 @font-face {
     font-family: SourceSansPro;
-    font-weight: 700;
+    font-weight: 600;
     src: url("fonts/SourceSansPro-Semibold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: SourceSansPro;
+    font-weight: 400;
+    src: url("fonts/SourceSansPro-Regular.ttf") format("opentype");
+}
+
+@font-face {
+    font-family: SourceSansPro;
+    font-weight: 700;
+    src: url("fonts/SourceSansPro-Bold.ttf") format("opentype");
 }
 
 * {
@@ -16,21 +28,20 @@ body {
 }
 
 .grid {
-    /* margin: 0; */
     width: 100vw;
     display: grid;
-    grid-template-columns: 0px auto max-content 0px;
+    grid-template-columns: 0 1fr max-content 0;
     grid-template-rows: min-content;
     grid-template-areas:
         ".   .    .  ." 
-        ". title nav .";
+        ". title nav ."
+        "hero hero hero hero";
     gap: 1em;
 }
 
 .title { 
     display: flex;
     grid-area: title;
-    margin: 0;
     align-items: center;
 }
 
@@ -49,22 +60,32 @@ body {
     margin-left: .2em;
 }
 
-.hero-image {
-    width: 100vw;
-    grid-row: 3;
-    grid-column: 1 / -1;
-    /* object-fit: cover; */
-}
-
 nav {
-    /* margin: 0;
-    padding: 0; */
     grid-area: nav;
     display: flex;
     align-items: center;
     justify-content: end;
     gap: 2em;
-    /* border: 1px solid black; */
+}
+
+.hero-image {
+    width: 100%;
+    grid-area: hero;
+    object-fit: cover;
+}
+
+.hero-article {
+    color: white;
+    grid-column: 2 / -2;
+    grid-row: 3;
+    align-self: end;
+    padding-bottom: 1.5rem;
+}
+
+.blog-article {
+    grid-column: 2 / -2;
+    grid-row: 4;
+    padding: 1em 0;
 }
 
 nav a {
@@ -75,6 +96,30 @@ nav a {
     text-decoration: none;
 }
 
-h3 {
+.hero-article .article-date {
+    font-size: .75rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: .5em;
+}
+
+.hero-article .article-title {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 2.125rem;
+    letter-spacing: -.03em;
+    padding-bottom: .5rem;
+}
+
+.hero-article .article-text {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+}
+
+h1, 
+h2, 
+h3,
+p {
     margin: 0;
 }
